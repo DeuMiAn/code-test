@@ -1,0 +1,57 @@
+// let input = require('fs').readFileSync('example.txt').toString().split('\n');
+
+
+
+
+function solution(s){
+    let answer=0;
+    let codes=[...s]
+    let newArr=[]
+    isDone=false
+    while(!isDone){
+        let temp;
+        if(codes.length<2){
+            console.log("끝")
+            isDone=true;
+            break;
+        }
+        for(i=0;i<codes.length;i++){
+            //현재 검사하는 코드보다 뒷칸
+            temp=codes[i+1];
+            //검사시작
+             // 검사할때는 0이면뒤가 1인지검사
+            if(codes[i]=='0'){
+                if(temp=='1'){
+                    //새로운 배열
+                    newArr=codes.splice(i,2)
+                    break;
+                }
+            }else{
+                if(temp=='0'){
+                    //새로운 배열
+                    newArr=codes.splice(i,2)
+                    break;
+                }
+    
+            }
+            if(i>=codes.length-2){
+                console.log("끝")
+                isDone=true;
+                break;
+            }
+        }
+    }
+    console.log(codes);
+}
+
+
+// const str="1011";
+// const str="0110011";
+// const str="000111";
+const str="00011111111";
+// const code="bbvmu";
+// const code="cbvvu";
+
+
+let result =solution(str);
+// console.log("결과: "+ result)
